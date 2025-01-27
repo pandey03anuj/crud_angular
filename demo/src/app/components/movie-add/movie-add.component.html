@@ -1,0 +1,18 @@
+<div class="movie-form">
+    <h2>Add Movie</h2>
+    <form [formGroup]="movieForm" (ngSubmit)="addMovie()">
+        <label for="title">Title</label>
+        <input type="text" id="title" class="form-control" formControlName="title" placeholder="Enter movie title">
+        <div *ngIf="movieForm.get('title')?.touched && movieForm.get('title')?.invalid" class="text-danger">Title is required.</div>
+
+        <label for="director">Director</label>
+        <input type="text" id="director" class="form-control" formControlName="director" placeholder="Enter movie director">
+        <div *ngIf="movieForm.get('director')?.touched && movieForm.get('director')?.invalid" class="text-danger">Director is required.</div>
+
+        <label for="year">Year</label>
+        <input type="text" id="year" class="form-control" formControlName="year" placeholder="Enter movie year">
+        <div *ngIf="movieForm.get('year')?.touched && movieForm.get('year')?.invalid" class="text-danger">Year is required.</div>
+
+        <button type="submit" class="btn btn-success mt-3" [disabled]="movieForm.invalid">Add Movie</button>
+    </form>
+</div>
