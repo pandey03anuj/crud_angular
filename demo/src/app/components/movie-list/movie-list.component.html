@@ -2,11 +2,21 @@
 <div class="movie-list">
 <h1>Movies</h1>
 
- <!-- <div class="search-section">
-    <input type="text" [(ngModel)]= "searchText" placeholder="Search by title or director" (input)='filterMovies()'/>
-</div>  -->
+ <div class="search-section">
+    <input type="text" [(ngModel)]="searchText" placeholder="Search by title or director" (input)="filterMovies()">
+</div> 
+
+<label for="sortBy">Sort by:</label>
+<select name="sortBy" id="sortBy" [(ngModel)]="sortBy" (change)="sortMovies()">
+    <option value="title">Title</option>
+    <option value="director">Director</option>
+    <option value="year">Year</option>    
+</select>
+
+<button click="toggleSort()">Sort {{ isAscending ? 'Ascending' : 'Descending' }}</button>
 
 <button routerLink="/add" class="btn btn-primary">Add movie</button>
+
     <table class="table mt-3">
         <thead>
             <tr>
@@ -17,7 +27,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let movie of movies">
+            <tr *ngFor="let movie of filteredMovies">
                 <td>{{ movie.title }}</td>
                 <td>{{ movie.director }}</td>
                 <td>{{ movie.year }}</td>

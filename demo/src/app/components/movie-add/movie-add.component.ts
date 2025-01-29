@@ -16,7 +16,7 @@ export class MovieAddComponent {
     this.movieForm=this.fb.group({
       title:['',[Validators.required]],
       director:['',[Validators.required]],
-      year:['',[Validators.required]]
+      year:['',[Validators.required,]]
     });
   }
 

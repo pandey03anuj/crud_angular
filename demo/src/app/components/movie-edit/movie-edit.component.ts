@@ -11,7 +11,7 @@ import { MovieService } from 'src/app/movie.service';
 export class MovieEditComponent implements OnInit {
 
   movieForm:FormGroup;
-  movieId: any|undefined;
+  movieId: number|undefined;
 
   constructor(private movieService:MovieService,private fb:FormBuilder,private route:ActivatedRoute,private router:Router){
     this.movieForm=this.fb.group({      
@@ -22,8 +22,8 @@ export class MovieEditComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.movieId=this.route.snapshot.paramMap.get('id')!;    
-    this.movieService.getMovie(this.movieId).subscribe(movie=>{
+    this.movieId=+this.route.snapshot.paramMap.get('id')!;    
+    this.movieService.getMovie(this.movieId).subscribe((movie)=>{
       this.movieForm.patchValue(movie);
     });
   }

@@ -10,7 +10,7 @@
         <div *ngIf="movieForm.get('director')?.touched && movieForm.get('director')?.invalid" class="text-danger">Director is required.</div>
 
         <label for="year">Year</label>
-        <input type="text" id="year" class="form-control" formControlName="year" placeholder="Enter movie year">
+        <input type="text" id="year"     class="form-control" formControlName="year" placeholder="Enter movie year">
         <div *ngIf="movieForm.get('year')?.touched && movieForm.get('year')?.invalid" class="text-danger">Year is required.</div>
 
         <button type="submit" class="btn btn-success mt-3" [disabled]="movieForm.invalid">Update Movie</button>
